@@ -1,6 +1,7 @@
-const initialState = { counter: 0 };
+const initialState = { counter: 0, results: [] };
 
 const reducer = (state = initialState, action) => {
+  console.log('state before the reducer', state.counter, state.results);
   switch (action.type) {
     case 'INCREMENT':
       return {
@@ -24,6 +25,15 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         counter: state.counter - action.value,
+      };
+
+    case 'STORE_RESULT':
+      // can use concat because it returns a new array. Cannot use push as
+      // it will return the same array and mutate state
+      // example: results: state.results.concat(state.counter);
+      return {
+        ...state,
+        results: [...state.results, { val: state.counter, id: new Date() }],
       };
 
     default:
