@@ -14,12 +14,12 @@ const reducer = (state = initialState, action) => {
   } else if (action.type === 'ADDFIVE') {
     return {
       ...state,
-      counter: state.counter + 5,
+      counter: state.counter + action.value,
     };
   } else if (action.type === 'MINUSFIVE') {
     return {
       ...state,
-      counter: state.counter - 5,
+      counter: state.counter - action.value,
     };
   }
   return state;
