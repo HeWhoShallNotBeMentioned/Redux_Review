@@ -1,28 +1,34 @@
 const initialState = { counter: 0 };
 
 const reducer = (state = initialState, action) => {
-  if (action.type === 'INCREMENT') {
-    return {
-      ...state,
-      counter: state.counter + 1,
-    };
-  } else if (action.type === 'DECREMENT') {
-    return {
-      ...state,
-      counter: state.counter - 1,
-    };
-  } else if (action.type === 'ADDFIVE') {
-    return {
-      ...state,
-      counter: state.counter + action.value,
-    };
-  } else if (action.type === 'MINUSFIVE') {
-    return {
-      ...state,
-      counter: state.counter - action.value,
-    };
+  switch (action.type) {
+    case 'INCREMENT':
+      return {
+        ...state,
+        counter: state.counter + 1,
+      };
+
+    case 'DECREMENT':
+      return {
+        ...state,
+        counter: state.counter - 1,
+      };
+
+    case 'ADDFIVE':
+      return {
+        ...state,
+        counter: state.counter + action.value,
+      };
+
+    case 'MINUSFIVE':
+      return {
+        ...state,
+        counter: state.counter - action.value,
+      };
+
+    default:
+      return state;
   }
-  return state;
 };
 
 export default reducer;
