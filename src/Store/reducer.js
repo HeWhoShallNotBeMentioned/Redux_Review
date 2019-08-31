@@ -35,6 +35,14 @@ const reducer = (state = initialState, action) => {
         ...state,
         results: [...state.results, { val: state.counter, id: new Date() }],
       };
+    case 'DELETE_RESULT':
+      const updatedArr = state.results.filter(item => {
+        return item.id !== action.id;
+      });
+      return {
+        ...state,
+        results: updatedArr,
+      };
 
     default:
       return state;
