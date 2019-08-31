@@ -3,6 +3,14 @@ import { connect } from 'react-redux';
 
 import CounterControl from '../../components/CounterControl/CounterControl';
 import CounterOutput from '../../components/CounterOutput/CounterOutput';
+import {
+  INCREMENT,
+  DECREMENT,
+  ADDFIVE,
+  MINUSFIVE,
+  STORE_RESULT,
+  DELETE_RESULT,
+} from '../../Store/actions';
 
 class Counter extends Component {
   render() {
@@ -51,12 +59,12 @@ const mapStateToProps = state => {
 //Sends local data back to redex store
 const mapDispatchToProps = dispatch => {
   return {
-    onIncrementCounter: () => dispatch({ type: 'INCREMENT' }),
-    onDecrementCounter: () => dispatch({ type: 'DECREMENT' }),
-    onAddFiveCounter: () => dispatch({ type: 'ADDFIVE', value: 5 }),
-    onMinusFiveCounter: () => dispatch({ type: 'MINUSFIVE', value: 5 }),
-    onStoreResult: () => dispatch({ type: 'STORE_RESULT' }),
-    onDeleteResult: id => dispatch({ type: 'DELETE_RESULT', id }),
+    onIncrementCounter: () => dispatch({ type: INCREMENT }),
+    onDecrementCounter: () => dispatch({ type: DECREMENT }),
+    onAddFiveCounter: () => dispatch({ type: ADDFIVE, value: 5 }),
+    onMinusFiveCounter: () => dispatch({ type: MINUSFIVE, value: 5 }),
+    onStoreResult: () => dispatch({ type: STORE_RESULT }),
+    onDeleteResult: id => dispatch({ type: DELETE_RESULT, id }),
   };
 };
 

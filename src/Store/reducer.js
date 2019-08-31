@@ -1,33 +1,42 @@
+import {
+  INCREMENT,
+  DECREMENT,
+  ADDFIVE,
+  MINUSFIVE,
+  STORE_RESULT,
+  DELETE_RESULT,
+} from './actions';
+
 const initialState = { counter: 0, results: [] };
 
 const reducer = (state = initialState, action) => {
   console.log('state before the reducer', state.counter, state.results);
   switch (action.type) {
-    case 'INCREMENT':
+    case INCREMENT:
       return {
         ...state,
         counter: state.counter + 1,
       };
 
-    case 'DECREMENT':
+    case DECREMENT:
       return {
         ...state,
         counter: state.counter - 1,
       };
 
-    case 'ADDFIVE':
+    case ADDFIVE:
       return {
         ...state,
         counter: state.counter + action.value,
       };
 
-    case 'MINUSFIVE':
+    case MINUSFIVE:
       return {
         ...state,
         counter: state.counter - action.value,
       };
 
-    case 'STORE_RESULT':
+    case STORE_RESULT:
       // can use concat because it returns a new array. Cannot use push as
       // it will return the same array and mutate state
       // example: results: state.results.concat(state.counter);
@@ -35,7 +44,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         results: [...state.results, { val: state.counter, id: new Date() }],
       };
-    case 'DELETE_RESULT':
+    case DELETE_RESULT:
       const updatedArr = state.results.filter(item => {
         return item.id !== action.id;
       });
