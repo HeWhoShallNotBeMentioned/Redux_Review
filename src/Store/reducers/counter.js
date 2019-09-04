@@ -1,4 +1,9 @@
-import { INCREMENT, DECREMENT, ADDFIVE, MINUSFIVE } from '../actions/actions';
+import {
+  INCREMENT,
+  DECREMENT,
+  ADDFIVE,
+  MINUSFIVE,
+} from '../actions/actionTypes';
 
 const initialState = { counter: 0 };
 

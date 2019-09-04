@@ -7,7 +7,7 @@ import {
   minusFive,
   storeResult,
   deleteResult,
-} from '../../Store/actions/actions';
+} from '../../Store/actions/index';
 
 import CounterControl from '../../components/CounterControl/CounterControl';
 import CounterOutput from '../../components/CounterOutput/CounterOutput';
